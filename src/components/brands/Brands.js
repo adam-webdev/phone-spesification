@@ -35,7 +35,7 @@ const Brands = () => {
 
   return (
     <div className="container-brand">
-      {results === undefined && (
+      {results?.status === undefined ? (
         <img
           width="80%"
           src={NotFound}
@@ -47,10 +47,7 @@ const Brands = () => {
             position: "absolute",
           }}
         />
-      )}
-      {results?.status === false ? (
-        <p>N Phone not found</p>
-      ) : (
+      ):(
         results?.data?.phones?.map((result, index) => (
           <div className="card-brand" key={index}>
             <img src={result.image} alt="img-brand" />

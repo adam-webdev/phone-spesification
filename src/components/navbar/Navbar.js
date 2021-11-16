@@ -10,6 +10,9 @@ const Navbar = () => {
     useStateContext(search);
   const navigate = useNavigate();
   const handleSearch = () => {
+    if(searchInput){
+      setResult('')
+    }
     setSearchInput(search);
     // setResult("");
   };
