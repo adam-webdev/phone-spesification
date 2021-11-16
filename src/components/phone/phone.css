@@ -40,18 +40,19 @@
   font-size:12px;
   text-align: center;
   font-weight:500;
-  background-color:blue;
   padding:2px 4px;
-  border-radius:2px;
+  border-radius:4px;
   box-sizing: border-box;
   width:70%;
-  color:#fff;
-
+  color:rgb(29, 100, 255);
+  border: 1px solid rgb(29, 100, 255);
   transition:.5s ease-in-out;
+
 }
 .fav-phone-latest:hover {
-  background-color:transparent;
-  color:blue;
+  background-color:rgb(29, 100, 255);
+
+  color:#fff;
 }
 
 @media(max-width:450px){

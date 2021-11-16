@@ -6,12 +6,13 @@ import TopByFans from "./../top-by-fans/TopByFans";
 import Brands from "./../brands/Brands";
 import xiaomi from "../../images/Xiaomi.jpeg";
 import { useStateContext } from "../../context/StateContextProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Layout = () => {
   const [topByInterest, setTopByInterest] = useState();
   const [topByFans, setTopByFans] = useState();
   const [latestDevice, setLatestDevice] = useState();
   const { searchInput } = useStateContext();
+  const navigate = useNavigate();
 
   // top by interest
   useEffect(() => {

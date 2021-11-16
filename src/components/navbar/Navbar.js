@@ -1,22 +1,26 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import { useStateContext } from "../../context/StateContextProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { GrClose } from "react-icons/gr";
 
 const Navbar = () => {
   const [search, setSearch] = useState("");
-  const { setSearchInput, state } = useStateContext(search);
-
+  const { setSearchInput, state, setResult, searchInput } =
+    useStateContext(search);
+  const navigate = useNavigate();
   const handleSearch = () => {
     setSearchInput(search);
+    // setResult("");
   };
   const handleReset = () => {
     setSearch("");
     setSearchInput("");
+    navigate("/");
   };
   return (
     <div className="nav">
-      <Link className="link-title" to="/">
+      <Link className="link-title" to="/" onClick={handleReset}>
         PhoneReview
       </Link>
       <Link to="/favorites" className="favorites">
@@ -32,7 +36,7 @@ const Navbar = () => {
         />
         {search ? (
           <p className="handleReset" onClick={handleReset}>
-            X
+            <GrClose />
           </p>
         ) : (
           ""

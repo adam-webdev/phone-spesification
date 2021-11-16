@@ -26,7 +26,6 @@ const DetailPhone = () => {
     getDetailPhone();
   }, []);
 
-  const handleFavorite = () => {};
   console.log(detailPhone);
 
   return (

@@ -18,6 +18,7 @@ const reducer = (state, action) => {
       const existItem = state.favorites.favItems.find(
         (result) => result.slug === newItem.slug
       );
+
       const favItems = existItem
         ? state.favorites.favItems.map((result) =>
             result.slug === existItem.slug ? newItem : result
@@ -26,6 +27,16 @@ const reducer = (state, action) => {
       localStorage.setItem("favItems", JSON.stringify(favItems));
       return { ...state, favorites: { ...state.favorites, favItems } };
     }
+    case "DELETE_ITEM_FAVORITES": {
+      const favItems = state.favorites.favItems.filter(
+        (result) => result.slug !== action.payload
+      );
+      localStorage.setItem("favItems", JSON.stringify(favItems));
+      return { ...state, favorites: { ...state.favorites, favItems } };
+    }
+    case "DELETE_FAVORITES":
+      localStorage.removeItem("favItems");
+      return { ...state, favorites: { ...state.favorites, favItems: [] } };
     // return { ...state.favorites, favorites: action.payload };
     default:
       return state;
@@ -53,12 +64,14 @@ const StateContextProvider = ({ children }) => {
           slug = brand.brand_slug;
         }
       });
+
       if (slug !== null) {
         setLoading(true);
         const brandSlug = await fetch(
           `https://api-mobilespecs.azharimm.site/v2/brands/${slug}`
         );
         const brandJson = await brandSlug.json();
+
         setResult(brandJson);
         setLoading(false);
       }
@@ -71,6 +84,7 @@ const StateContextProvider = ({ children }) => {
     <StateContext.Provider
       value={{
         results,
+        setResult,
         getBrands,
         searchInput,
         setSearchInput,
