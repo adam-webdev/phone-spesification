@@ -76,6 +76,7 @@ const Layout = () => {
                   <p>Phone Name</p>
                   <p>Hits</p>
                 </tr>
+
                 {topByInterest?.data?.phones?.map((interest) => (
                   <TopByInterest interest={interest} key={interest.slug} />
                 ))}

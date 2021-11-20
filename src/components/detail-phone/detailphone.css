@@ -1,6 +1,8 @@
 .container-detail{
   width: 100%;
   display: flex;
+  box-sizing: border-box;
+  padding: 10px 80px;
   flex-direction: column;
 }
 .brand{
@@ -88,7 +90,7 @@ table tr .key{
 @media(max-width:768px){
 
   table tr .title{
-    idth: 40px;
+    width: 40px;
     font-size: 14px;
   }
   table tr .key{
@@ -120,5 +122,8 @@ table tr .key{
   .keys{
     width: 80px;
     font-size:14px;
+  }
+  .container-detail{
+    padding: 10px ;
   }
 }

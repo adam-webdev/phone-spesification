@@ -6,12 +6,13 @@ import { GrClose } from "react-icons/gr";
 
 const Navbar = () => {
   const [search, setSearch] = useState("");
-  const { setSearchInput, state, setResult, searchInput } =
-    useStateContext(search);
+  const { setSearchInput, state, setResult, searchInput } = useStateContext(
+    search
+  );
   const navigate = useNavigate();
   const handleSearch = () => {
-    if(searchInput){
-      setResult('')
+    if (searchInput) {
+      setResult("");
     }
     setSearchInput(search);
     // setResult("");
@@ -24,12 +25,9 @@ const Navbar = () => {
   return (
     <div className="nav">
       <Link className="link-title" to="/" onClick={handleReset}>
-        PhoneReview
+        Adam Gadget
       </Link>
-      <Link to="/favorites" className="favorites">
-        Favorites{" "}
-        <div className="total-favorites">{state.favorites.favItems.length}</div>
-      </Link>
+
       <div className="wrapp-search">
         <input
           type="text"
@@ -46,6 +44,10 @@ const Navbar = () => {
         )}
         <button onClick={handleSearch}>Search</button>
       </div>
+      <Link to="/favorites" className="favorites">
+        Favorites{" "}
+        <div className="total-favorites">{state.favorites.favItems.length}</div>
+      </Link>
     </div>
   );
 };

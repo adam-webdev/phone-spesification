@@ -7,8 +7,13 @@ import Swal from "sweetalert";
 import NotFound from "../../images/not-found.png";
 
 const Brands = () => {
-  const { getBrands, loading, searchInput, results, dispatch } =
-    useStateContext();
+  const {
+    getBrands,
+    loading,
+    searchInput,
+    results,
+    dispatch,
+  } = useStateContext();
 
   useEffect(() => {
     if (searchInput !== "") {
@@ -47,7 +52,7 @@ const Brands = () => {
             position: "absolute",
           }}
         />
-      ):(
+      ) : (
         results?.data?.phones?.map((result, index) => (
           <div className="card-brand" key={index}>
             <img src={result.image} alt="img-brand" />

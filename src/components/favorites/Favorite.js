@@ -20,7 +20,7 @@ export const Favorite = () => {
     <>
       <div className="nav">
         <Link to="/" className="link-title">
-          PhoneReview
+          Adam Gadget
         </Link>
       </div>
       <div className="header-favorites">

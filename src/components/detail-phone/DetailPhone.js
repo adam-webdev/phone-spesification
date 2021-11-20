@@ -26,13 +26,11 @@ const DetailPhone = () => {
     getDetailPhone();
   }, []);
 
-  console.log(detailPhone);
-
   return (
     <>
       <div className="nav">
         <Link to="/" className="link-title">
-          PhoneReview
+          Adam Gadget
         </Link>
         <Link
           to="/favorites"
